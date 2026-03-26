@@ -28,13 +28,13 @@ export default function ProductDetails() {
     useEffect(() => {
         const fetchProduct = async () => {
             try {
-                const res = await fetch(`http://localhost:5000/api/products/${id}`);
+                const res = await fetch(`https://agro-backend-dirj.onrender.com/api/products/${id}`);
                 if (!res.ok) throw new Error('Product not found');
                 const data = await res.json();
                 setProduct(data);
 
                 // Fetch related products
-                const relatedRes = await fetch(`http://localhost:5000/api/products?category=${data.category}`);
+                const relatedRes = await fetch(`https://agro-backend-dirj.onrender.com/api/products?category=${data.category}`);
                 if (relatedRes.ok) {
                     const relatedData = await relatedRes.json();
                     // Filter out current product and limit to 4
@@ -77,7 +77,7 @@ export default function ProductDetails() {
 
         setSubmittingReview(true);
         try {
-            const res = await fetch(`http://localhost:5000/api/products/${id}/reviews`, {
+            const res = await fetch(`https://agro-backend-dirj.onrender.com/api/products/${id}/reviews`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -91,7 +91,7 @@ export default function ProductDetails() {
                 setRating(0);
                 setComment('');
                 // Refresh product data
-                const updatedRes = await fetch(`http://localhost:5000/api/products/${id}`);
+                const updatedRes = await fetch(`https://agro-backend-dirj.onrender.com/api/products/${id}`);
                 const updatedData = await updatedRes.json();
                 setProduct(updatedData);
             } else {

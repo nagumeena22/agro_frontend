@@ -27,7 +27,7 @@ export default function AdminStories() {
 
     const fetchStories = async () => {
         try {
-            const res = await fetch('http://localhost:5000/api/stories/admin', {
+            const res = await fetch('https://agro-backend-dirj.onrender.com/api/stories/admin', {
                 headers: {
                     Authorization: `Bearer ${user?.token}`,
                 },
@@ -43,7 +43,7 @@ export default function AdminStories() {
 
     const handleApprove = async (id: string) => {
         try {
-            const res = await fetch(`http://localhost:5000/api/stories/${id}/approve`, {
+            const res = await fetch(`https://agro-backend-dirj.onrender.com/api/stories/${id}/approve`, {
                 method: 'PUT',
                 headers: {
                     Authorization: `Bearer ${user?.token}`,
@@ -60,7 +60,7 @@ export default function AdminStories() {
     const handleDelete = async (id: string) => {
         if (!window.confirm('Are you sure you want to delete this story?')) return;
         try {
-            const res = await fetch(`http://localhost:5000/api/stories/${id}`, {
+            const res = await fetch(`https://agro-backend-dirj.onrender.com/api/stories/${id}`, {
                 method: 'DELETE',
                 headers: {
                     Authorization: `Bearer ${user?.token}`,

@@ -20,7 +20,7 @@ export default function AddProductPage() {
     const submitHandler = async (e: React.FormEvent) => {
         e.preventDefault();
         try {
-            const res = await fetch('http://localhost:5000/api/products', {
+            const res = await fetch('https://agro-backend-dirj.onrender.com/api/products', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',

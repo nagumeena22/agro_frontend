@@ -46,7 +46,7 @@ export default function AdminOrdersPage() {
 
         const fetchOrders = async () => {
             try {
-                const res = await fetch('http://localhost:5000/api/orders', {
+                const res = await fetch('https://agro-backend-dirj.onrender.com/api/orders', {
                     headers: {
                         Authorization: `Bearer ${user.token}`,
                     },
@@ -66,7 +66,7 @@ export default function AdminOrdersPage() {
     const confirmOrder = async (id: string) => {
         if (window.confirm('Are you sure you want to confirm this order?')) {
             try {
-                const res = await fetch(`http://localhost:5000/api/orders/${id}/confirm`, {
+                const res = await fetch(`https://agro-backend-dirj.onrender.com/api/orders/${id}/confirm`, {
                     method: 'PUT',
                     headers: {
                         Authorization: `Bearer ${user?.token}`,
@@ -92,7 +92,7 @@ export default function AdminOrdersPage() {
     const markAsPaid = async (id: string) => {
         if (window.confirm('Mark this COD order as paid?')) {
             try {
-                const res = await fetch(`http://localhost:5000/api/orders/${id}/admin-pay`, {
+                const res = await fetch(`https://agro-backend-dirj.onrender.com/api/orders/${id}/admin-pay`, {
                     method: 'PUT',
                     headers: {
                         Authorization: `Bearer ${user?.token}`,
@@ -116,7 +116,7 @@ export default function AdminOrdersPage() {
 
     const markAsShipped = async (id: string) => {
         try {
-            const res = await fetch(`http://localhost:5000/api/orders/${id}/shipped`, {
+            const res = await fetch(`https://agro-backend-dirj.onrender.com/api/orders/${id}/shipped`, {
                 method: 'PUT',
                 headers: {
                     Authorization: `Bearer ${user?.token}`,
@@ -132,7 +132,7 @@ export default function AdminOrdersPage() {
 
     const markAsOutForDelivery = async (id: string) => {
         try {
-            const res = await fetch(`http://localhost:5000/api/orders/${id}/out-for-delivery`, {
+            const res = await fetch(`https://agro-backend-dirj.onrender.com/api/orders/${id}/out-for-delivery`, {
                 method: 'PUT',
                 headers: {
                     Authorization: `Bearer ${user?.token}`,
@@ -148,7 +148,7 @@ export default function AdminOrdersPage() {
 
     const markAsDelivered = async (id: string) => {
         try {
-            const res = await fetch(`http://localhost:5000/api/orders/${id}/deliver`, {
+            const res = await fetch(`https://agro-backend-dirj.onrender.com/api/orders/${id}/deliver`, {
                 method: 'PUT',
                 headers: {
                     Authorization: `Bearer ${user?.token}`,

@@ -57,7 +57,7 @@ export default function OrderPage({ params }: { params: Promise<{ id: string }> 
         const fetchOrder = async () => {
             if (!user) return;
             try {
-                const res = await fetch(`http://localhost:5000/api/orders/${id}`, {
+                const res = await fetch(`https://agro-backend-dirj.onrender.com/api/orders/${id}`, {
                     headers: {
                         Authorization: `Bearer ${user.token}`,
                     },
@@ -82,7 +82,7 @@ export default function OrderPage({ params }: { params: Promise<{ id: string }> 
 
     const handlePaymentPaid = async () => {
         try {
-            const res = await fetch(`http://localhost:5000/api/orders/${id}/pay`, {
+            const res = await fetch(`https://agro-backend-dirj.onrender.com/api/orders/${id}/pay`, {
                 method: 'PUT',
                 headers: {
                     'Content-Type': 'application/json',
@@ -115,7 +115,7 @@ export default function OrderPage({ params }: { params: Promise<{ id: string }> 
         }
 
         try {
-            const res = await fetch(`http://localhost:5000/api/orders/${id}/submit-utr`, {
+            const res = await fetch(`https://agro-backend-dirj.onrender.com/api/orders/${id}/submit-utr`, {
                 method: 'PUT',
                 headers: {
                     'Content-Type': 'application/json',

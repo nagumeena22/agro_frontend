@@ -75,7 +75,7 @@ export default function AdminDashboard() {
                 const notifs: Notification[] = [];
 
                 // Fetch analytics data
-                const analyticsRes = await fetch('http://localhost:5000/api/analytics', {
+                const analyticsRes = await fetch('https://agro-backend-dirj.onrender.com/api/analytics', {
                     headers: {
                         Authorization: `Bearer ${user.token}`,
                     },
@@ -87,7 +87,7 @@ export default function AdminDashboard() {
                 }
 
                 // Fetch recent orders (last 3 days for dashboard)
-                const ordersRes = await fetch('http://localhost:5000/api/orders', {
+                const ordersRes = await fetch('https://agro-backend-dirj.onrender.com/api/orders', {
                     headers: {
                         Authorization: `Bearer ${user.token}`,
                     },
@@ -113,7 +113,7 @@ export default function AdminDashboard() {
                 }
 
                 // Fetch recent customers (last 3 days for dashboard)
-                const usersRes = await fetch('http://localhost:5000/api/users', {
+                const usersRes = await fetch('https://agro-backend-dirj.onrender.com/api/users', {
                     headers: {
                         Authorization: `Bearer ${user.token}`,
                     },
@@ -139,7 +139,7 @@ export default function AdminDashboard() {
                 }
 
                 // Fetch low stock products
-                const productsRes = await fetch('http://localhost:5000/api/products');
+                const productsRes = await fetch('https://agro-backend-dirj.onrender.com/api/products');
                 if (productsRes.ok) {
                     const products: Product[] = await productsRes.json();
                     const lowStock = products.filter(p => p.countInStock <= p.minThreshold);

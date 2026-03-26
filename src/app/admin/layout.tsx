@@ -32,7 +32,7 @@ export default function AdminLayout({ children }: { children: ReactNode }) {
                 const readNotifications = JSON.parse(localStorage.getItem('readNotifications') || '[]');
 
                 // Fetch recent orders (last 24 hours for bell)
-                const ordersRes = await fetch('http://localhost:5000/api/orders', {
+                const ordersRes = await fetch('https://agro-backend-dirj.onrender.com/api/orders', {
                     headers: {
                         Authorization: `Bearer ${user.token}`,
                     },
@@ -62,7 +62,7 @@ export default function AdminLayout({ children }: { children: ReactNode }) {
                 }
 
                 // Fetch recent customers (last 24 hours for bell)
-                const usersRes = await fetch('http://localhost:5000/api/users', {
+                const usersRes = await fetch('https://agro-backend-dirj.onrender.com/api/users', {
                     headers: {
                         Authorization: `Bearer ${user.token}`,
                     },
@@ -92,7 +92,7 @@ export default function AdminLayout({ children }: { children: ReactNode }) {
                 }
 
                 // Fetch low stock products (always show - active alerts, not affected by read status)
-                const productsRes = await fetch('http://localhost:5000/api/products');
+                const productsRes = await fetch('https://agro-backend-dirj.onrender.com/api/products');
                 if (productsRes.ok) {
                     const products = await productsRes.json();
                     const lowStock = products.filter((p: any) => p.countInStock <= p.minThreshold);

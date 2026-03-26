@@ -37,7 +37,7 @@ export default function FarmerStories() {
     useEffect(() => {
         const fetchStories = async () => {
             try {
-                const res = await fetch('http://localhost:5000/api/stories');
+                const res = await fetch('https://agro-backend-dirj.onrender.com/api/stories');
                 const data = await res.json();
                 setStories(data);
             } catch (error) {
@@ -55,7 +55,7 @@ export default function FarmerStories() {
 
         setSubmitting(true);
         try {
-            const res = await fetch('http://localhost:5000/api/stories', {
+            const res = await fetch('https://agro-backend-dirj.onrender.com/api/stories', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',

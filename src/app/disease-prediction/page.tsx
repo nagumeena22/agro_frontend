@@ -49,7 +49,7 @@ export default function DiseasePrediction() {
                 const recommendedProducts: any[] = [];
                 for (const keyword of data.recommendation_keywords) {
                     try {
-                        const productRes = await fetch(`http://localhost:5000/api/products?keyword=${keyword}`);
+                        const productRes = await fetch(`https://agro-backend-dirj.onrender.com/api/products?keyword=${keyword}`);
                         if (productRes.ok) {
                             const products = await productRes.json();
                             if (products.length > 0) {

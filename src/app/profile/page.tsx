@@ -28,7 +28,7 @@ export default function ProfilePage() {
 
         const fetchOrders = async () => {
             try {
-                const res = await fetch('http://localhost:5000/api/orders/myorders', {
+                const res = await fetch('https://agro-backend-dirj.onrender.com/api/orders/myorders', {
                     headers: {
                         Authorization: `Bearer ${user.token}`,
                     },
